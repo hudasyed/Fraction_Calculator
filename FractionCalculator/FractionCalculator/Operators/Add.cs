@@ -5,9 +5,9 @@ using FractionCalculator.Numbers;
 
 namespace FractionCalculator.Operators
 {
-    class Add : Operator
+    public static class Add
     {
-        public override INumber Calculate(INumber firstValue, INumber secondValue)
+        public static INumber Calculate(INumber firstValue, INumber secondValue)
         {
             int firstNumerator = firstValue.GetNumerator();
             int secondNumerator = secondValue.GetNumerator();
@@ -21,11 +21,14 @@ namespace FractionCalculator.Operators
             }
             else
             {
-                int newDenominator = GreatestCommonDenominator(firstDenominator, secondDenominator);
-                result = new Fraction((firstNumerator + secondNumerator) * newDenominator, newDenominator);
+                int newDenominator = MathHelper.LowestCommonMultiple(firstDenominator, secondDenominator);
+                firstNumerator = (firstNumerator) * (newDenominator / firstDenominator);
+                secondNumerator = (secondDenominator) * (newDenominator / secondDenominator);
+
+                result = new Fraction((firstNumerator  + secondNumerator), newDenominator);
             }
             
-            return NormalizeFraction(result);
+            return MathHelper.NormalizeFraction(result);
         }
     }
 }

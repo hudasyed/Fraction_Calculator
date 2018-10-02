@@ -5,21 +5,21 @@ using FractionCalculator.Numbers;
 
 namespace FractionCalculator.Operators
 {
-    class Divide : Operator
+    public static class Divide
     {
-        public override INumber Calculate(INumber firstValue, INumber secondValue)
+        public static INumber Calculate(INumber firstValue, INumber secondValue)
         {
             int firstNumerator = firstValue.GetNumerator();
             int secondNumerator = secondValue.GetNumerator();
             int firstDenominator = firstValue.GetDenomerator();
-            int secondDenominator = firstValue.GetDenomerator();
+            int secondDenominator = secondValue.GetDenomerator();
 
             Fraction result;
             int newNumerator = firstNumerator * secondDenominator;
             int newDenominator = firstDenominator * secondNumerator;
             result = new Fraction(newNumerator, newDenominator);
 
-            return NormalizeFraction(result);
+            return MathHelper.NormalizeFraction(result);
         }
     }
 }

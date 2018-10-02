@@ -5,11 +5,10 @@ using System.Text;
 
 namespace FractionCalculator.Operators
 {
-    public abstract class Operator
+    public static class MathHelper
     {
-        public abstract INumber Calculate(INumber firstValue, INumber secondValue);
 
-        public INumber NormalizeFraction(Fraction f)
+        public static INumber NormalizeFraction(Fraction f)
         {
             int numerator = f.GetNumerator();
             int denominator = f.GetDenomerator();
@@ -23,7 +22,7 @@ namespace FractionCalculator.Operators
             }
         }
 
-        public Fraction ReduceFraction(Fraction f)
+        public static Fraction ReduceFraction(Fraction f)
         {
             int numerator = f.GetNumerator();
             int denominator = f.GetDenomerator();
@@ -32,7 +31,12 @@ namespace FractionCalculator.Operators
             return gcd > 1 ?  new Fraction(numerator / gcd, denominator / gcd) :  f;
         }
 
-        public int GreatestCommonDenominator(int a, int b)
+        public static int LowestCommonMultiple(int a, int b)
+        {
+            return (a / GreatestCommonDenominator(a, b)) * b;
+        }
+
+        public static int GreatestCommonDenominator(int a, int b)
         {
             if (a == 0)
                 return b;
