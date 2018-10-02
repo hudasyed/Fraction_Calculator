@@ -36,13 +36,10 @@ namespace FractionCalculator
                     response = Subtract.Calculate(first, second).GetValue();
                     break;
                 case "*":
-                    if (first.GetValue() == "0" || second.GetValue() == "0") response = "0";
-                    else response = Multiply.Calculate(first, second).GetValue();
+                    response = Multiply.Calculate(first, second).GetValue();
                     break;
                 case "/":
-                    if (first.GetValue() == "0") response = "0";
-                    else if (second.GetValue() == "0") throw new DivideByZeroException("You cannot divide a number by zero.");
-                    else response = Divide.Calculate(first, second).GetValue();
+                    response = Divide.Calculate(first, second).GetValue();
                     break;
                 default:
                     break;

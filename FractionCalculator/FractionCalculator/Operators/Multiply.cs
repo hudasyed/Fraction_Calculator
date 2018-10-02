@@ -13,8 +13,10 @@ namespace FractionCalculator.Operators
             int secondNumerator = secondValue.GetNumerator();
             int firstDenominator = firstValue.GetDenomerator();
             int secondDenominator = secondValue.GetDenomerator();
-
             Fraction result;
+
+            if (firstNumerator == 0 || secondNumerator == 0) return new Whole(0);
+
             int newNumerator = firstNumerator * secondNumerator;
             int newDenominator = firstDenominator * secondDenominator;
             result = new Fraction(newNumerator, newDenominator);

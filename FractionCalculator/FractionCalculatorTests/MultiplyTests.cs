@@ -28,5 +28,15 @@ namespace FractionCalculatorTests
             var actual = Multiply.Calculate(first, second);
             Assert.Equal("3/14", actual.GetValue());
         }
+
+        [Fact]
+        public void Multiplying_By_Zero_Should_Return_Zero()
+        {
+            Whole first = new Whole(0);
+            Whole second = new Whole(20);
+
+            var actual = Multiply.Calculate(first, second);
+            Assert.Equal("0", actual.GetValue());
+        }
     }
 }

@@ -28,5 +28,26 @@ namespace FractionCalculatorTests
             var actual = Divide.Calculate(first, second);
             Assert.Equal("6/7", actual.GetValue());
         }
+
+        [Fact]
+        public void Dividing_Number_By_Zero_Should_Throw_Exception()
+        {
+            Fraction first = new Fraction(3, 10);
+            Whole second = new Whole(0);
+
+            Assert.Throws<DivideByZeroException>(() => Divide.Calculate(first, second));
+        }
+
+        [Fact]
+        public void Dividing_Zero_By_A_Number_Should_Return_Zero()
+        {
+            Whole first = new Whole(0);
+            Fraction second = new Fraction(3, 10);
+
+            var actual = Divide.Calculate(first, second);
+            Assert.Equal("0", actual.GetValue());
+        }
+
+
     }
 }
