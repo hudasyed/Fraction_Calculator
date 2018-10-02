@@ -12,7 +12,7 @@ namespace FractionCalculator.Operators
             int firstNumerator = firstValue.GetNumerator();
             int secondNumerator = secondValue.GetNumerator();
             int firstDenominator = firstValue.GetDenomerator();
-            int secondDenominator = firstValue.GetDenomerator();
+            int secondDenominator = secondValue.GetDenomerator();
             Fraction result;
 
             if(firstDenominator == secondDenominator)
@@ -23,7 +23,7 @@ namespace FractionCalculator.Operators
             {
                 int newDenominator = MathHelper.LowestCommonMultiple(firstDenominator, secondDenominator);
                 firstNumerator = (firstNumerator) * (newDenominator / firstDenominator);
-                secondNumerator = (secondDenominator) * (newDenominator / secondDenominator);
+                secondNumerator = (secondNumerator) * (newDenominator / secondDenominator);
 
                 result = new Fraction((firstNumerator  + secondNumerator), newDenominator);
             }

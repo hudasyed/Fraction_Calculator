@@ -30,5 +30,16 @@ namespace FractionCalculatorTests
 
         }
 
+
+        [Fact]
+        public void Add_Should_Add_Whole_And_Fraction_And_Return_Fraction()
+        {
+            Whole whole = new Whole(12);
+            Fraction fraction = new Fraction(1, 2);
+
+            var actual = Add.Calculate(whole, fraction);
+            Assert.Equal("12_1/2", actual.GetValue());
+        }
+
     }
 }

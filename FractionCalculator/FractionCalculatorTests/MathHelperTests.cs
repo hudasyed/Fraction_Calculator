@@ -25,6 +25,7 @@ namespace FractionCalculatorTests
         [Fact]
         public void LCM_Should_Return_Lowest_Common_Multiple()
         {
+            int test = MathHelper.LowestCommonMultiple(1, 2);
             int eight = MathHelper.LowestCommonMultiple(4, 8);
             int fifteen = MathHelper.LowestCommonMultiple(3, 5);
 

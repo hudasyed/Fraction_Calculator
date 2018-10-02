@@ -28,5 +28,15 @@ namespace FractionCalculatorTests
             var actual = Subtract.Calculate(first, second);
             Assert.Equal("3/7", actual.GetValue());
         }
+
+        [Fact]
+        public void Subtract_Should_Subtract_Whole_And_Fraction_And_Return_Fraction()
+        {
+            Whole whole = new Whole(12);
+            Fraction fraction = new Fraction(1, 2);
+
+            var actual = Subtract.Calculate(whole, fraction);
+            Assert.Equal("11_1/2", actual.GetValue());
+        }
     }
 }
